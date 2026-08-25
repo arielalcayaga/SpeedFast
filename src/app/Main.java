@@ -5,32 +5,30 @@ import model.*;
 public class Main {
     public static void main(String[] args) {
 
-      Pedido pedido1 = new PedidoComida(001,
-               "Los Alerces 1234", "Comida",
-               "Pizza");
+Pedido pedidoComida1 = new PedidoComida("001","Los Olmos 1234",
+        5.3, "Porotos");
+        Pedido pedidoEncomienda2 = new PedidoEncomienda("002","Las Araucarias 5678",
+                7.8, 2.5);
+        Pedido pedidoExpress3 = new PedidoExpress("003","Las Galaxias 3856",
+                10.6, "Normal");
 
-        System.out.println("=================================");
-      pedido1.asignarRepartidor();
-        System.out.println("---------------------------------");
-      pedido1.asignarRepartidor("Juan Soto");
-        System.out.println("=================================");
+        pedidoComida1.mostrarResumen();
+        System.out.println("                                                                  ");
+        pedidoComida1.calcularTiempoEntrega();
+        System.out.println("==================================================================");
 
-        Pedido pedido2 = new PedidoEncomienda(002,
-                "Los Olmos 5678", "Encomienda",
-                1.2);
 
-        pedido2.asignarRepartidor();
-        System.out.println("---------------------------------");
-        pedido2.asignarRepartidor("Lucía Vera");
-        System.out.println("=================================");
+        pedidoEncomienda2.mostrarResumen();
+        System.out.println("                                                                  ");
+        pedidoEncomienda2.calcularTiempoEntrega();
+        System.out.println("==================================================================");
 
-        Pedido pedido3 = new PedidoExpress(003,
-                "Los Pinos 9123", "Express",
-                "Urgente");
 
-        pedido3.asignarRepartidor();
-        System.out.println("---------------------------------");
-        pedido3.asignarRepartidor("Pablo Lopéz");
-        System.out.println("=================================");
+        pedidoExpress3.mostrarResumen();
+        System.out.println("                                                                   ");
+        pedidoExpress3.calcularTiempoEntrega();
+        System.out.println("===================================================================");
+
+
     }
 }

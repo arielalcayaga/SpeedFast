@@ -11,13 +11,13 @@ public class PedidoEncomienda extends Pedido {
 
     /**
      *
-     *@param idPedido identificador pedido
+     * @param idPedido         identificador pedido
      * @param direccionEntrega direccion entrega pedido
-     * @param tipoPedido tipo pedido
-     * @param pesoEncomienda peso encomienda
+     * @param distanciaKm      distancia en kilometros pedido
+     * @param pesoEncomienda   peso encomienda
      */
-    public PedidoEncomienda(int idPedido, String direccionEntrega, String tipoPedido, double pesoEncomienda) {
-        super(idPedido, direccionEntrega, tipoPedido);
+    public PedidoEncomienda(String idPedido, String direccionEntrega, double distanciaKm, double pesoEncomienda) {
+        super(idPedido, direccionEntrega, distanciaKm);
         this.pesoEncomienda = pesoEncomienda;
     }
 
@@ -30,10 +30,16 @@ public class PedidoEncomienda extends Pedido {
     }
 
     /**
-     * Sobre escritura metodo asignarRepartidor
+     * Sobre escritura metodo abstracto calcularTiempoEntrega
      */
     @Override
-    public void asignarRepartidor() {
-        System.out.println("Esperando encomienda...");
+    public void calcularTiempoEntrega() {
+        System.out.println("Calculando tiempo entrega...");
+       double tiempoEntrega = 20 + 1.5 * distanciaKm;
+       int tiempoEntregaEntero = (int) Math.round(tiempoEntrega);
+        System.out.println(tiempoEntregaEntero + " minutos aproximadamente.");
+        System.out.println("Este tiempo puede variar por " +
+                "el peso de la encomienda.");
+        System.out.println("Tu Encomienda ha salido a repartir.");
     }
 }

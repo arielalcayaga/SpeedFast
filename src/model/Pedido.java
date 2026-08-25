@@ -1,33 +1,33 @@
 /**
- * Clase Padre Pedido
+ * Clase Padre abstracta Pedido
  */
 package model;
 
-public class Pedido {
+public abstract class Pedido {
     /**
      * Atributos clase Pedido
      */
-    protected int idPedido;
+    protected String idPedido;
     protected String direccionEntrega;
-    protected String tipoPedido;
+    protected double distanciaKm;
 
     /**
      *
      * @param idPedido identificador pedido
      * @param direccionEntrega direccion entrega pedido
-     * @param tipoPedido tipo pedido
+     * @param distanciaKm distancia kilometros
      */
-    public Pedido(int idPedido, String direccionEntrega, String tipoPedido) {
+    public Pedido(String idPedido, String direccionEntrega, double distanciaKm) {
         this.idPedido = idPedido;
         this.direccionEntrega = direccionEntrega;
-        this.tipoPedido = tipoPedido;
+        this.distanciaKm = distanciaKm;
     }
 
-    public int getIdPedido() {
+    public String getIdPedido() {
         return idPedido;
     }
 
-    public void setIdPedido(int idPedido) {
+    public void setIdPedido(String idPedido) {
         this.idPedido = idPedido;
     }
 
@@ -39,25 +39,25 @@ public class Pedido {
         this.direccionEntrega = direccionEntrega;
     }
 
-    public String getTipoPedido() {
-        return tipoPedido;
+    public double getDistanciaKm() {
+        return distanciaKm;
     }
 
-    public void setTipoPedido(String tipoPedido) {
-        this.tipoPedido = tipoPedido;
+    public void setDistanciaKm(double distanciaKm) {
+        this.distanciaKm = distanciaKm;
     }
 
     /**
-     * Metodo asignarRepartidor básico
+     * Metodo comun mostrarResumen
      */
-     public void asignarRepartidor() {
-        System.out.println("Asignando repartidor...");
-    }
+     public void mostrarResumen() {
+        System.out.println("id Pedido: " +idPedido);
+         System.out.println("Dirección Entrega: " +direccionEntrega);
+         System.out.println("Distancia en Km: " +distanciaKm);
+     }
+
     /**
-     * Metodo asignarRepartidor con parametro nombreRepartidor
+     * Metodo abstracto calcularTiempoEntrega
      */
-    public void asignarRepartidor(String nombreRepartidor) {
-        System.out.println("Asignando repartidor...");
-        System.out.println("Nombre Repartidor: " +nombreRepartidor);
-    }
+    public abstract void calcularTiempoEntrega();
 }

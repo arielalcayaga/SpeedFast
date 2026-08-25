@@ -13,11 +13,11 @@ public class PedidoExpress extends Pedido {
      *
      * @param idPedido identificador pedido
      * @param direccionEntrega direccion entrega pedido
-     * @param tipoPedido tipo pedido
+     * @param distanciaKm distancia en kilometros pedido
      * @param tipoUrgenciaPedido tipo urgencia pedido
      */
-    public PedidoExpress(int idPedido, String direccionEntrega, String tipoPedido, String tipoUrgenciaPedido) {
-        super(idPedido, direccionEntrega, tipoPedido);
+    public PedidoExpress(String idPedido, String direccionEntrega, double distanciaKm, String tipoUrgenciaPedido) {
+        super(idPedido, direccionEntrega, distanciaKm);
         this.tipoUrgenciaPedido = tipoUrgenciaPedido;
     }
 
@@ -30,10 +30,18 @@ public class PedidoExpress extends Pedido {
     }
 
     /**
-     * Sobre escritura metodo asignarRepartidor
+     * Sobre escritura metodo abstracto calcularTiempoEntrega
      */
     @Override
-    public void asignarRepartidor() {
-        System.out.println("Asignando Urgencia Pedido Express...");
+    public void calcularTiempoEntrega() {
+        System.out.println("Calculando tiempo entrega...");
+        if (distanciaKm > 5){
+            System.out.println("15 minutos aproximadamente");
+        } else {
+            System.out.println("10 minutos aproximadamente");
+        }
+        System.out.println("Este tiempo puede variar por " +
+                "la cantidad de pedidos del repartidor");
+        System.out.println("Tu pedido Express ha salido a repartir.");
     }
 }
