@@ -51,7 +51,9 @@ public abstract class Pedido {
      * Metodo comun mostrarResumen
      */
      public void mostrarResumen() {
-        System.out.println("id Pedido: " +idPedido);
+         String tipoPedido = getClass().toString();
+         System.out.println("Tipo pedido: " +tipoPedido.substring(18));
+         System.out.println("ID Pedido: " +idPedido);
          System.out.println("Dirección Entrega: " +direccionEntrega);
          System.out.println("Distancia en Km: " +distanciaKm);
      }

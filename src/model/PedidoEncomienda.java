@@ -40,6 +40,6 @@ public class PedidoEncomienda extends Pedido {
         System.out.println(tiempoEntregaEntero + " minutos aproximadamente.");
         System.out.println("Este tiempo puede variar por " +
                 "el peso de la encomienda.");
-        System.out.println("Tu Encomienda ha salido a repartir.");
+        System.out.println("Tu encomienda ha salido a repartir.");
     }
 }
