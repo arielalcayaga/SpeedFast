@@ -1,5 +1,5 @@
 ![Duoc UC](https://www.duoc.cl/wp-content/uploads/2022/09/logo-0.png)
-# 🧠 Evaluación Formativa 1  – Desarrollo Orientado a Objetos II
+# 🧠 Evaluación Formativa 2  – Desarrollo Orientado a Objetos II
 
 ## 👤 Autor del proyecto
 - **Nombre completo:** Ariel Francisco Alcayaga Cartagena
@@ -11,7 +11,7 @@
 
 ## 📘 Descripción general del sistema
 
-Este proyecto corresponde a la Evaluación Formativa 1 de la asignatura Desarrollo Orientado a Objetos II. Se trata de un sistema orientado a objetos desarrollado en Java, cuyo objetivo es modelar y gestionar entidades representativas de un dominio real, aplicando los principios de encapsulamiento, composición, herencia, polimorfismo e interfaces.
+Este proyecto corresponde a la Evaluación Formativa 2 de la asignatura Desarrollo Orientado a Objetos II. Se trata de un sistema orientado a objetos desarrollado en Java, cuyo objetivo es modelar y gestionar entidades representativas de un dominio real, aplicando los principios de encapsulamiento, composición, herencia, polimorfismo y clases abstractas.
 
 El proyecto fue desarrollado a partir de un caso contextualizado, abordando problemáticas reales y proponiendo una solución estructurada, modular y reutilizable.
 
@@ -37,7 +37,7 @@ El proyecto fue desarrollado a partir de un caso contextualizado, abordando prob
 1. Clona el repositorio desde GitHub:
 
 ```bash
-git clone https://github.com/arielalcayaga/SpeedFastS1.git
+git clone https://github.com/arielalcayaga/SpeedFast.git
 ```
 
 2. Abre el proyecto en IntelliJ IDEA.
@@ -49,10 +49,10 @@ git clone https://github.com/arielalcayaga/SpeedFastS1.git
 
 ---
 
-**Repositorio GitHub:** [https://github.com/arielalcayaga/SpeedFastS1.git]
-**Fecha de entrega:** \[17/08/2026]
+**Repositorio GitHub:** [https://github.com/arielalcayaga/SpeedFast.git]
+**Fecha de entrega:** \[24/08/2026]
 
 ---
 
-© Duoc UC | Escuela de Informática y Telecomunicaciones | Evaluación Formativa 1.
+© Duoc UC | Escuela de Informática y Telecomunicaciones | Evaluación Formativa 2.
 
