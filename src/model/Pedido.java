@@ -3,7 +3,16 @@
  */
 package model;
 
-public abstract class Pedido {
+import interfaces.Cancelable;
+import interfaces.Despachable;
+import interfaces.Rastreable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Pedido implements Despachable, Cancelable, Rastreable {
+    private List<String> entregas = new ArrayList<>();
+    private List<String> canceladas = new ArrayList<>();
     /**
      * Atributos clase Pedido
      */
@@ -51,8 +60,7 @@ public abstract class Pedido {
      * Metodo comun mostrarResumen
      */
      public void mostrarResumen() {
-         String tipoPedido = getClass().toString();
-         System.out.println("Tipo pedido: " +tipoPedido.substring(18));
+         System.out.println("Tipo pedido: " +getClass().getSimpleName());
          System.out.println("ID Pedido: " +idPedido);
          System.out.println("Dirección Entrega: " +direccionEntrega);
          System.out.println("Distancia en Km: " +distanciaKm);
@@ -62,4 +70,20 @@ public abstract class Pedido {
      * Metodo abstracto calcularTiempoEntrega
      */
     public abstract void calcularTiempoEntrega();
+
+
+/**
+ * Metodo asignarRepartidor básico
+ */
+public void asignarRepartidor() {
+    System.out.println("Asignando repartidor...");
 }
+/**
+ * Metodo asignarRepartidor con parametro nombreRepartidor
+ */
+public void asignarRepartidor(String nombreRepartidor) {
+    System.out.println("Asignando repartidor...");
+    System.out.println("Nombre Repartidor: " + nombreRepartidor);
+}
+}
+
