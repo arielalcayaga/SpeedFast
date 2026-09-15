@@ -22,7 +22,7 @@ public class Repartidor implements Runnable {
                 Pedido pedido = zonaDeCarga.retirarPedido();
                 Thread.sleep(1000); // simula tiempo entre retiro pedido y salida a reparto.
                 pedido.setEstado(EstadoPedido.EN_REPARTO);
-                System.out.println("[Repartidor: " +nombre+"] Saliendo a reparto pedido : " + pedido);
+                System.out.println("[Repartidor: " +nombre+"] Saliendo pedido a reparto : " + pedido);
                 Thread.sleep(2000); // simula tiempo de reparto.
                 pedido.setEstado(EstadoPedido.ENTREGADO);
                 System.out.println("[Repartidor: " +nombre+"] Pedido entregado: " + pedido);
