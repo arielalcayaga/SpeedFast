@@ -1,45 +1,59 @@
 package app;
 
-import model.*;
-import interfaces.*;
+import model.EstadoPedido;
+import model.Pedido;
+import model.Repartidor;
+import util.ZonaDeCarga;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) {
 
-        List<String> historial = new ArrayList<>();
-Pedido pedidoComida1 = new PedidoComida("001","Los Olmos 1234",
-        5.3, "Porotos");
-        Pedido pedidoEncomienda2 = new PedidoEncomienda("002","Las Araucarias 5678",
-                7.8, 2.5);
-        Pedido pedidoExpress3 = new PedidoExpress("003","Las Galaxias 3856",
-                10.6, "Normal");
-
-        pedidoComida1.mostrarResumen();
-        pedidoComida1.asignarRepartidor("Juan Soto");
-        System.out.println("                                                                  ");
-        pedidoComida1.calcularTiempoEntrega();
-        pedidoComida1.despachar();
-
-        System.out.println("==================================================================");
+        //Pedidos
+        Pedido pedido1 = new Pedido (1, "Los Alerces 1234", EstadoPedido.PENDIENTE);
+        Pedido pedido2 = new Pedido (2, "Los Pinos 5678", EstadoPedido.PENDIENTE);
+        Pedido pedido3 = new Pedido (3, "Los Aromos 7575", EstadoPedido.PENDIENTE);
+        Pedido pedido4 = new Pedido (4, "Reyes 7657", EstadoPedido.PENDIENTE);
+        Pedido pedido5 = new Pedido (5, "Alameda 5647", EstadoPedido.PENDIENTE);
 
 
-        pedidoEncomienda2.mostrarResumen();
-        pedidoEncomienda2.asignarRepartidor();
-        System.out.println("                                                                  ");
-        pedidoEncomienda2.calcularTiempoEntrega();
-        pedidoEncomienda2.cancelar();
-        System.out.println("==================================================================");
+        // Zona de Carga
+        ZonaDeCarga zonaDeCarga = new ZonaDeCarga(5);
+        zonaDeCarga.agregarPedido(pedido1);
+        zonaDeCarga.agregarPedido(pedido2);
+        zonaDeCarga.agregarPedido(pedido3);
+        zonaDeCarga.agregarPedido(pedido4);
+        zonaDeCarga.agregarPedido(pedido5);
+
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+
+        // Repartidores
+        executor.execute(new Repartidor("Javier", zonaDeCarga));
+        executor.execute(new Repartidor("Gustavo", zonaDeCarga));
+        executor.execute(new Repartidor("Mariana", zonaDeCarga));
 
 
-        pedidoExpress3.mostrarResumen();
-        System.out.println("                                                                   ");
-        pedidoExpress3.calcularTiempoEntrega();
-        pedidoExpress3.despachar();
-        System.out.println("===================================================================");
+        // Simulación durante 10 segundos
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
 
+        // Apagar el sistema
+        executor.shutdownNow();
 
+        try {
+            if (!executor.awaitTermination(2, TimeUnit.SECONDS)) {
+                System.out.println("[Main] Algunos hilos no finalizaron correctamente.");
+            }
+        } catch (InterruptedException e) {
+            executor.shutdownNow();
+        }
+        System.out.println();
+        System.out.println("Todos los pedidos han sido entregados correctamente.");
     }
 }
